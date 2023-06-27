@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Gallery</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+    #gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+    .image {
+      margin: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+    .image:hover {
+      transform: scale(1.05);
+    }
+    .image img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .delete {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .delete:hover {
+      background-color: #ff3333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Gallery</h1>
+  <div id="gallery">
+    <div class="image">
+      <img src="image1.jpg">
+      <button class="delete">Delete</button>
+    </div>
+    <div class="image">
+      <img src="image2.jpg">
+      <button class="delete">Delete</button>
+    </div>
+    <div class="image">
+      <img src="image3.jpg">
+      <button class="delete">Delete</button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#gallery').on('click', '.delete', function() {
+        $(this).closest('.image').remove();
+      });
+    });
+  </script>
+</body>
+</html>
